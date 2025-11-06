@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>เลือกโปรไฟล์ของคุณ</title>
+<title>Profiles us</title>
 
 <style>
   body {
     font-family: monospace, sans-serif;
-    background: #b460b4;
-    color: white;
+    background: #000;       /* พื้นหลังดำ */
+    color: #fff;            /* ตัวอักษรขาว */
     margin: 0;
     padding: 80px 0;
     text-align: center;
@@ -27,8 +27,8 @@
   }
 
   .card {
-    background: #362a2a;
-    border: 2px solid #fff;
+    background: #111;       /* กล่องสีดำเข้ม */
+    border: 2px solid #fff; /* ขอบขาว */
     width: 45%;
     padding: 40px 20px;
     border-radius: 15px;
@@ -37,14 +37,14 @@
   }
 
   .card:hover {
-    background: #444;
-    border-color: cyan;
+    background: #222;       /* สีเข้มขึ้นตอน hover */
+    border-color: #ff0000;  /* ขอบฟ้าตอนชี้ */
     transform: scale(1.02);
   }
 
   .icon {
     font-size: 70px;
-    text-shadow: 0 0 20px lime;
+    text-shadow: 0 0 15px #ff0000; /* เงาสีฟ้า */
   }
 
   .card h3 {
@@ -53,7 +53,7 @@
   }
 
   .card p {
-    color: #ddd;
+    color: #ccc;            /* สีเทาอ่อน */
   }
 </style>
 
@@ -69,19 +69,15 @@
 </head>
 
 <body>
-  <h1>เลือกโปรไฟล์ของคุณ</h1>
+  <h1>Profiles us</h1>
 
   <div class="profiles">
     <div class="card" id="profile1" onclick="selectProfile('profile1')">
-      <div class="icon">🎵</div>
       <h3>In</h3>
-      <p>ศิลปิน / นักแต่งเพลง</p>
     </div>
 
     <div class="card" id="profile2" onclick="selectProfile('profile2')">
-      <div class="icon">🎨</div>
       <h3>Ni</h3>
-      <p>นักออกแบบ / นักสร้างสรรค์</p>
     </div>
   </div>
 </body>
