@@ -70,13 +70,13 @@
   <h1>เลือกโปรไฟล์ของคุณ</h1>
 
   <div class="profiles">
-    <div class="card" onclick="go(this, 'nickname.html')">
+    <div class="card" onclick="go(this, ':>.html')">
       <div class="icon">μ</div>
       <h3>Nickname</h3>
       <p>Name</p>
     </div>
 
-    <div class="card" onclick="go(this, 'nickname.html')">
+    <div class="card" onclick="go(this, ':<.html')">
       <div class="icon">3</div>
       <h3>Nickname</h3>
       <p>Name</p>
