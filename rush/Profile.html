@@ -17,22 +17,42 @@
     margin: 0;
   }
 
-  h1 { color: #fff; }
+  h1 {
+    color: #fff;
+    margin-bottom: 50px;
+  }
 
   .card {
     background: #333;
     color: #fff;
-    border: 2px solid #fff;
-    padding: 15px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    padding: 40px;
     margin: 20px;
     text-align: center;
-    width: 130px;
+    width: 40vw;      /* 40% ของความกว้างหน้าจอ */
+    height: 40vh;     /* 40% ของความสูงหน้าจอ */
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
   }
 
   .card:hover {
     background: #555;
     border-color: red;
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+  }
+
+  .icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px lime;
+  }
+
+  .text {
+    font-size: 28px;
   }
 </style>
 
@@ -47,14 +67,14 @@
   <h1>เลือกโปรไฟล์ของคุณ</h1>
 
   <div class="card" onclick="go('mu.html')">
-    <div style="font-size:35px;">g</div>
-    <div>In</div>
+    <div class="icon">g</div>
+    <div class="text">In</div>
     <div>An</div>
   </div>
 
   <div class="card" onclick="go('three.html')">
-    <div style="font-size:35px;">b</div>
-    <div>Ni</div>
+    <div class="icon">b</div>
+    <div class="text">Ni</div>
     <div>Na</div>
   </div>
 </body>
