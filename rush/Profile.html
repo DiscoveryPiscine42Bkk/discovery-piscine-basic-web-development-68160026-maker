@@ -6,118 +6,83 @@
 <title>เลือกโปรไฟล์ของคุณ</title>
 
 <style>
-    body {
-        font-family: monospace, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #b460b4;
-        padding-top: 80px;
-    }
+  body {
+    font-family: monospace, sans-serif;
+    background: #b460b4;
+    color: white;
+    margin: 0;
+    padding: 80px 0;
+    text-align: center;
+  }
 
-    h1 {
-        color: #fff;
-        margin-bottom: 60px;
-        text-align: center;
-        font-size: 2.2em;
-    }
+  h1 {
+    margin-bottom: 60px;
+  }
 
-    /* โซนรวมโปรไฟล์ */
-    .profile-selection {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-        width: 90%;
-        max-width: 1200px;
-    }
+  .profiles {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
 
-    /* กล่องโปรไฟล์แต่ละคน */
-    .profile-card {
-        flex: 1 1 45%; /* กว้างเกือบครึ่งหน้า */
-        background-color: #362a2a;
-        color: #fff;
-        border: 2px solid #fff;
-        border-radius: 16px;
-        padding: 40px 20px;
-        text-align: center;
-        cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
+  .card {
+    background: #362a2a;
+    border: 2px solid #fff;
+    width: 45%;
+    padding: 40px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
-    .profile-card:hover {
-        border-color: #00ffff;
-        background-color: #444;
-        transform: scale(1.02);
-    }
+  .card:hover {
+    background: #444;
+    border-color: cyan;
+    transform: scale(1.02);
+  }
 
-    .profile-card.selected {
-        border: 2px solid rgb(0, 174, 255);
-        background-color: #666;
-    }
+  .icon {
+    font-size: 70px;
+    text-shadow: 0 0 20px lime;
+  }
 
-    .profile-icon {
-        font-size: 80px;
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-        text-shadow: 0 0 20px #00ff00;
-    }
+  .card h3 {
+    text-decoration: underline;
+    margin: 10px 0;
+  }
 
-    .profile-card h3 {
-        margin: 10px 0 5px 0;
-        font-size: 1.8em;
-        text-decoration: underline;
-    }
-
-    .profile-card p {
-        font-size: 1.1em;
-        color: #ddd;
-        margin: 5px 0;
-    }
+  .card p {
+    color: #ddd;
+  }
 </style>
 
 <script>
-function selectProfile(profileId) {
-    document.querySelectorAll('.profile-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-
-    const selectedCard = document.getElementById(profileId);
-    if (selectedCard) {
-        selectedCard.classList.add('selected');
-
-        // เปลี่ยนหน้าเมื่อเลือกโปรไฟล์
-        if (profileId === 'profile1') {
-            setTimeout(() => { window.location.href = 'mu.html'; }, 200);
-        }
-        if (profileId === 'profile2') {
-            setTimeout(() => { window.location.href = 'three.html'; }, 200);
-        }
+  function selectProfile(id) {
+    if (id === "profile1") {
+      window.location.href = "mu.html";
+    } else if (id === "profile2") {
+      window.location.href = "three.html";
     }
-}
+  }
 </script>
 </head>
 
 <body>
-    <h1>เลือกโปรไฟล์ของคุณ</h1>
+  <h1>เลือกโปรไฟล์ของคุณ</h1>
 
-    <div class="profile-selection">
-        <div class="profile-card" id="profile1" onclick="selectProfile('profile1')">
-            <span class="profile-icon">🎵</span>
-            <h3>In</h3>
-            <p>ศิลปิน / นักแต่งเพลง</p>
-        </div>
-
-        <div class="profile-card" id="profile2" onclick="selectProfile('profile2')">
-            <span class="profile-icon">🎨</span>
-            <h3>Ni</h3>
-            <p>นักออกแบบ / นักสร้างสรรค์</p>
-        </div>
+  <div class="profiles">
+    <div class="card" id="profile1" onclick="selectProfile('profile1')">
+      <div class="icon">🎵</div>
+      <h3>In</h3>
+      <p>ศิลปิน / นักแต่งเพลง</p>
     </div>
+
+    <div class="card" id="profile2" onclick="selectProfile('profile2')">
+      <div class="icon">🎨</div>
+      <h3>Ni</h3>
+      <p>นักออกแบบ / นักสร้างสรรค์</p>
+    </div>
+  </div>
 </body>
 </html>
