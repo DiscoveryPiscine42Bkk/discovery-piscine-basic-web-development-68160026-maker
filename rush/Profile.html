@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Portfolio</title>
+<title>เลือกโปรไฟล์ของคุณ</title>
 
 <style>
     body {
@@ -14,77 +14,109 @@
         align-items: center;
         min-height: 100vh;
         margin: 0;
-        background-color: #e5ff00;
-        padding-top: 100px;
+        background-color: #b460b4;
+        padding-top: 80px;
     }
 
-    /* กล่องรวมทั้งหมด */
-    .container {
+    h1 {
+        color: #fff;
+        margin-bottom: 60px;
+        text-align: center;
+        font-size: 2.2em;
+    }
+
+    /* โซนรวมโปรไฟล์ */
+    .profile-selection {
         display: flex;
-        flex-wrap: wrap; /* ถ้าแคบจะขึ้นบรรทัดใหม่ */
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 40px; /* ระยะห่างระหว่างการ์ด */
+        gap: 40px;
         width: 90%;
         max-width: 1200px;
     }
 
     /* กล่องโปรไฟล์แต่ละคน */
-    .card {
-        flex: 1 1 45%; /* ให้แต่ละใบกว้างเกือบครึ่งหน้าจอ */
-        background: #222;
-        color: white;
-        border: 3px solid #555;
+    .profile-card {
+        flex: 1 1 45%; /* กว้างเกือบครึ่งหน้า */
+        background-color: #362a2a;
+        color: #fff;
+        border: 2px solid #fff;
         border-radius: 16px;
-        padding: 40px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        padding: 40px 20px;
         text-align: center;
+        cursor: pointer;
         transition: 0.3s;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
-    /* เอฟเฟกต์ตอนชี้เมาส์ */
-    .card:hover {
-        border-color: #00aaff;
-        background: #333;
+    .profile-card:hover {
+        border-color: #00ffff;
+        background-color: #444;
         transform: scale(1.02);
     }
 
-    /* รูปโปรไฟล์ (ตัวอย่าง) */
-    .card img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 2px solid #00aaff;
+    .profile-card.selected {
+        border: 2px solid rgb(0, 174, 255);
+        background-color: #666;
     }
 
-    .card h1 {
-        font-size: 1.8em;
+    .profile-icon {
+        font-size: 80px;
+        display: block;
         margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: 0 0 20px #00ff00;
     }
 
-    .card p {
-        font-size: 1.05em;
-        line-height: 1.5;
+    .profile-card h3 {
+        margin: 10px 0 5px 0;
+        font-size: 1.8em;
+        text-decoration: underline;
+    }
+
+    .profile-card p {
+        font-size: 1.1em;
+        color: #ddd;
         margin: 5px 0;
     }
 </style>
+
+<script>
+function selectProfile(profileId) {
+    document.querySelectorAll('.profile-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+
+    const selectedCard = document.getElementById(profileId);
+    if (selectedCard) {
+        selectedCard.classList.add('selected');
+
+        // เปลี่ยนหน้าเมื่อเลือกโปรไฟล์
+        if (profileId === 'profile1') {
+            setTimeout(() => { window.location.href = 'mu.html'; }, 200);
+        }
+        if (profileId === 'profile2') {
+            setTimeout(() => { window.location.href = 'three.html'; }, 200);
+        }
+    }
+}
+</script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Profile 1">
-            <h1>Ratanabhumi Mahing</h1>
-            <p>Web Developer | Designer | Pianist</p>
-            <p>Creating modern websites and interactive digital art.</p>
+    <h1>เลือกโปรไฟล์ของคุณ</h1>
+
+    <div class="profile-selection">
+        <div class="profile-card" id="profile1" onclick="selectProfile('profile1')">
+            <span class="profile-icon">🎵</span>
+            <h3>In</h3>
+            <p>ศิลปิน / นักแต่งเพลง</p>
         </div>
 
-        <div class="card">
-            <img src="https://via.placeholder.com/120" alt="Profile 2">
-            <h1>Alex Tan</h1>
-            <p>Frontend Engineer | UI/UX Designer</p>
-            <p>Passionate about clean design and smooth user experience.</p>
+        <div class="profile-card" id="profile2" onclick="selectProfile('profile2')">
+            <span class="profile-icon">🎨</span>
+            <h3>Ni</h3>
+            <p>นักออกแบบ / นักสร้างสรรค์</p>
         </div>
     </div>
 </body>
