@@ -1,81 +1,91 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>เลือกโปรไฟล์</title>
+<title>Our Portfolio</title>
 
 <style>
-  body {
-    background: #b460b4;
-    font-family: monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-  }
+    body {
+        font-family: monospace, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #e5ff00;
+        padding-top: 100px;
+    }
 
-  h1 {
-    color: #fff;
-    margin-bottom: 50px;
-  }
+    /* กล่องรวมทั้งหมด */
+    .container {
+        display: flex;
+        flex-wrap: wrap; /* ถ้าแคบจะขึ้นบรรทัดใหม่ */
+        justify-content: center;
+        gap: 40px; /* ระยะห่างระหว่างการ์ด */
+        width: 90%;
+        max-width: 1200px;
+    }
 
-  .card {
-    background: #333;
-    color: #fff;
-    border: 3px solid #fff;
-    border-radius: 20px;
-    padding: 40px;
-    margin: 20px;
-    text-align: center;
-    width: 40vw;      /* 40% ของความกว้างหน้าจอ */
-    height: 40vh;     /* 40% ของความสูงหน้าจอ */
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 0.3s;
-  }
+    /* กล่องโปรไฟล์แต่ละคน */
+    .card {
+        flex: 1 1 45%; /* ให้แต่ละใบกว้างเกือบครึ่งหน้าจอ */
+        background: #222;
+        color: white;
+        border: 3px solid #555;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        text-align: center;
+        transition: 0.3s;
+    }
 
-  .card:hover {
-    background: #555;
-    border-color: red;
-    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
-  }
+    /* เอฟเฟกต์ตอนชี้เมาส์ */
+    .card:hover {
+        border-color: #00aaff;
+        background: #333;
+        transform: scale(1.02);
+    }
 
-  .icon {
-    font-size: 80px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px lime;
-  }
+    /* รูปโปรไฟล์ (ตัวอย่าง) */
+    .card img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 2px solid #00aaff;
+    }
 
-  .text {
-    font-size: 28px;
-  }
+    .card h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 1.05em;
+        line-height: 1.5;
+        margin: 5px 0;
+    }
 </style>
-
-<script>
-  function go(page) {
-    location.href = page;
-  }
-</script>
 </head>
 
 <body>
-  <h1>เลือกโปรไฟล์ของคุณ</h1>
+    <div class="container">
+        <div class="card">
+            <img src="https://via.placeholder.com/120" alt="Profile 1">
+            <h1>Ratanabhumi Mahing</h1>
+            <p>Web Developer | Designer | Pianist</p>
+            <p>Creating modern websites and interactive digital art.</p>
+        </div>
 
-  <div class="card" onclick="go('mu.html')">
-    <div class="icon">g</div>
-    <div class="text">In</div>
-    <div>An</div>
-  </div>
-
-  <div class="card" onclick="go('three.html')">
-    <div class="icon">b</div>
-    <div class="text">Ni</div>
-    <div>Na</div>
-  </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/120" alt="Profile 2">
+            <h1>Alex Tan</h1>
+            <p>Frontend Engineer | UI/UX Designer</p>
+            <p>Passionate about clean design and smooth user experience.</p>
+        </div>
+    </div>
 </body>
 </html>
