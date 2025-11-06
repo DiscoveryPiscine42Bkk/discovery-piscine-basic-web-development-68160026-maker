@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เลือกโปรไฟล์</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เลือกโปรไฟล์</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #e5ff00;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      margin: 0;
-      padding-top: 100px;
-    }
+<style>
+  body {
+    font-family: monospace, sans-serif;
+    background: #b460b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    margin: 0;
+    padding-top: 100px;
+  }
 
-    h1 {
-      color: #333;
-      margin-bottom: 40px;
-    }
+  h1 {
+    color: white;
+    margin-bottom: 40px;
+  }
 
-    .profiles {
-      display: flex;
-      gap: 30px;
-    }
+  .profiles {
+    display: flex;
+    gap: 30px;
+  }
 
-    .card {
-      background: #222;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      text-align: center;
-      width: 140px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+  .card {
+    background: #2f2f2f;
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    padding: 15px;
+    width: 150px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 
-    .card:hover {
-      border-color: #00aaff;
-      background: #333;
-    }
+  .card:hover {
+    border-color: red;
+    background: #444;
+  }
 
-    .icon {
-      font-size: 36px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px lime;
-    }
+  .card.active {
+    border-color: cyan;
+    background: #666;
+  }
 
-    .selected {
-      border-color: #00aaff;
-      background: #555;
-    }
-  </style>
+  .icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px lime;
+  }
+</style>
 
-  <script>
-    function go(profile, page) {
-      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
-      profile.classList.add('selected');
-      setTimeout(() => location.href = page, 200);
-    }
-  </script>
+<script>
+  function pick(card, link) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    setTimeout(() => location.href = link, 100);
+  }
+</script>
 </head>
+
 <body>
-  <h1>Choose your profile</h1>
+  <h1>เลือกโปรไฟล์ของคุณ</h1>
 
   <div class="profiles">
-    <div class="card" onclick="go(this, ':>.html')">
-      <div class="icon">μ</div>
-      <h3>Nickname</h3>
-      <p>Name</p>
+    <div class="card" onclick="pick(this, 'mu.html')">
+      <div class="icon">g</div>
+      <h3>In</h3>
+      <p>An</p>
     </div>
 
-    <div class="card" onclick="go(this, ':<.html')">
-      <div class="icon">3</div>
-      <h3>Nickname</h3>
-      <p>Name</p>
+    <div class="card" onclick="pick(this, 'three.html')">
+      <div class="icon">b</div>
+      <h3>Ni</h3>
+      <p>Na</p>
     </div>
   </div>
 </body>
