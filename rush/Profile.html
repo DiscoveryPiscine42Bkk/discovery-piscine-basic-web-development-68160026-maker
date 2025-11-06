@@ -7,60 +7,38 @@
 
 <style>
   body {
-    font-family: Arial, sans-serif;
-    background: #000000;
+    background: #b460b4;
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    height: 250vh;
-    margin: 125;
-    padding-top: 250px;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
   }
 
-  h1 {
-    color: white;
-    margin-bottom: 100px;
-  }
-
-  .profiles {
-    display: flex;
-    gap: 100px;
-  }
+  h1 { color: #fff; }
 
   .card {
-    background: #2f2f2f;
-    color: white;
-    border: 2px solid white;
-    text-align: center;
+    background: #333;
+    color: #fff;
+    border: 2px solid #fff;
     padding: 15px;
-    width: 150px;
+    margin: 20px;
+    text-align: center;
+    width: 130px;
     cursor: pointer;
-    transition: 0.2s;
   }
 
   .card:hover {
+    background: #555;
     border-color: red;
-    background: #444;
-  }
-
-  .card.active {
-    border-color: cyan;
-    background: #666;
-  }
-
-  .icon {
-    font-size: 36px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 20px lime;
   }
 </style>
 
 <script>
-  function pick(card, link) {
-    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
-    setTimeout(() => location.href = link, 100);
+  function go(page) {
+    location.href = page;
   }
 </script>
 </head>
@@ -68,18 +46,16 @@
 <body>
   <h1>เลือกโปรไฟล์ของคุณ</h1>
 
-  <div class="profiles">
-    <div class="card" onclick="pick(this, 'mu.html')">
-      <div class="icon">g</div>
-      <h3>In</h3>
-      <p>An</p>
-    </div>
+  <div class="card" onclick="go('mu.html')">
+    <div style="font-size:35px;">g</div>
+    <div>In</div>
+    <div>An</div>
+  </div>
 
-    <div class="card" onclick="pick(this, 'three.html')">
-      <div class="icon">b</div>
-      <h3>Ni</h3>
-      <p>Na</p>
-    </div>
+  <div class="card" onclick="go('three.html')">
+    <div style="font-size:35px;">b</div>
+    <div>Ni</div>
+    <div>Na</div>
   </div>
 </body>
 </html>
