@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Basic Calculator</title>
+</head>
+
+<body>
+  <h2>Basic Calculator</h2>
+
+  <input type="text" id="left" placeholder="Left number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+  </select>
+  <input type="text" id="right" placeholder="Right number">
+  <input type="submit" value="Try me!" onclick="calculate()">
+
+  <script>
+    function calculate() {
+      let left = document.getElementById("left").value;
+      let right = document.getElementById("right").value;
+      let op = document.getElementById("operator").value;
+
+      if (!/^\d+$/.test(left) || !/^\d+$/.test(right)) {
+        alert("Error :(");
+        return;
+      }
+
+      let num1 = parseInt(left);
+      let num2 = parseInt(right);
+      let result;
+
+      if ((op === "/" || op === "%") && num2 === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      switch (op) {
+        case "+": result = num1 + num2; break;
+        case "-": result = num1 - num2; break;
+        case "*": result = num1 * num2; break;
+        case "/": result = num1 / num2; break;
+        case "%": result = num1 % num2; break;
+      }
+
+      alert("Result: " + result);
+      console.log("Result: " + result);
+    }
+
+    setInterval(function() {
+      alert("Please, use me...");
+    }, 30000);
+  </script>
+</body>
+</html>
