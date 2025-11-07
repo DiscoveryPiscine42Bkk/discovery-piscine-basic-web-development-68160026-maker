@@ -1,67 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balloon</title>
   <style>
-    .container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-    }
     #balloon {
+      width: 200px;
+      height: 200px;
+      background-color: red;
       border-radius: 50%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 200px;
+      margin: 200px auto;
     }
   </style>
-  <body>
-    <div class="container">
-      <div
-        onclick="addSize()"
-        onmouseleave="removeSize()"
-        id="balloon"
-        style="width: 200px; height: 200px; background-color: rgb(238, 75, 75)"
-      ></div>
-    </div>
-  </body>
+</head>
+<body>
+  <div id="balloon" onclick="grow()" onmouseleave="shrink()"></div>
+
   <script>
-    const removeSize = () => {
-      const ballon = document.getElementById("ballon");
-      const colors = ["blue", "green", "red"];
-      let width = parseInt(ballon.style.width) - 5;
-      let height = parseInt(ballon.style.height) - 5;
-      if (width < 200) {
-        ballon.style.width = 200 + "px";
-        ballon.style.height = 200 + "px";
+    const colors = ["red", "green", "blue"];
+
+    function grow() {
+      const b = document.getElementById("balloon");
+      let size = parseInt(b.style.width);
+      let color = b.style.backgroundColor;
+      size += 10;
+
+      if (size > 420) {
+        size = 200;
+        color = "red";
       } else {
-        ballon.style.width = width + "px";
-        ballon.style.height = height + "px";
+        color = colors[(colors.indexOf(color) + 1) % 3];
       }
-      const color = ballon.style.backgroundColor;
-      ballon.style.backgroundColor =
-        colors[(colors.findIndex((e) => e == color) + 1) % 3];
-    };
-    const addSize = () => {
-      const ballon = document.getElementById("ballon");
-      const colors = ["red", "green", "blue"];
-      let width = parseInt(ballon.style.width) + 10;
-      let height = parseInt(ballon.style.height) + 10;
-      if (width < 200) {
-        ballon.style.width = 200 + "px";
-        ballon.style.height = 200 + "px";
-        ballon.style.backgroundColor = "red";
-      } else {
-        ballon.style.width = width + "px";
-        ballon.style.height = height + "px";
-        const color = ballon.style.backgroundColor;
-        ballon.style.backgroundColor =
-          colors[(colors.findIndex((e) => e == color) + 1) % 3];
-      }
-    };
+
+      b.style.width = size + "px";
+      b.style.height = size + "px";
+      b.style.backgroundColor = color;
+    }
+
+    function shrink() {
+      const b = document.getElementById("balloon");
+      let size = parseInt(b.style.width);
+      let color = b.style.backgroundColor;
+      size -= 5;
+
+      if (size < 200) size = 200;
+      color = colors[(colors.indexOf(color) - 1 + 3) % 3];
+
+      b.style.width = size + "px";
+      b.style.height = size + "px";
+      b.style.backgroundColor = color;
+    }
   </script>
+</body>
 </html>
